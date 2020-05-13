@@ -1,0 +1,12 @@
+
+
+.box {
+	border-radius: 40px;
+	background-color: white;
+	width: 400px;
+	height: 3em;
+}
+
+.clear {
+	border-radius: 20px;
+}
