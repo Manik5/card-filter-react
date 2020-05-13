@@ -41,11 +41,6 @@ function SearchBox() {
       </ul>
     );
   };
-  const onClearClick = () => {
-    setSearchText('');
-    setFilteredData(sourceData);
-  };
-
 
 
   return (
@@ -53,7 +48,6 @@ function SearchBox() {
       <br />
      <div>
         <input className="box" value={searchText} onChange={onTextChange} type="text" placeholder="Search..." />
-        <button className="clear" onClick={onClearClick}>Clear</button>
         {renderedFilterData()}
      </div>
     </div>
