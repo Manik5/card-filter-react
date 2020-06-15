@@ -3,8 +3,9 @@ import './SearchBox.css';
 
 function SearchBox() {
   const [sourceData, setSourceData] = useState([]);
-  let [filteredData, setFilteredData] = useState([]);
-  let [searchText, setSearchText] = useState('');
+  const [filteredData, setFilteredData] = useState([]);
+	const [searchText, setSearchText] = useState('');
+	const [display, setDisplay] = useState(false)
 
   useEffect(() => {
     fetch('https://api.scryfall.com/catalog/card-names')
@@ -26,10 +27,13 @@ function SearchBox() {
   const onItemClick = (value) => {
     setSearchText(value);
     setFilteredData([]);
-  };
+	};
+
 
   const renderedFilterData = () => {
-    if (!filteredData) return null;
+    if (!filteredData) {
+			return null;
+		}
 
     return (
       <ul style={{listStyle:"none"}}>
@@ -47,8 +51,15 @@ function SearchBox() {
     <div className="BoxInput">
       <br />
      <div>
-        <input className="box" value={searchText} onChange={onTextChange} type="text" placeholder="Search..." />
-        {renderedFilterData()}
+				<input
+					className="box"
+					value={searchText}
+					onChange={onTextChange}
+					type="text"
+					onClick={() => setDisplay(!display)}
+					placeholder="Search..."
+				/>
+        { display && renderedFilterData()}
      </div>
     </div>
   );

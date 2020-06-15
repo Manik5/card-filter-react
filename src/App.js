@@ -10,7 +10,7 @@ class App extends React.Component{
         <div className="App">
         </div>
          <div>
-           <SearchBox items/>
+           <SearchBox />
          </div>
       </div>
     )
